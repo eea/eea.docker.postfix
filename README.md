@@ -6,7 +6,7 @@ The relay is set in the environment variable: `MTP_RELAY`.
 
 The hostname of the postfix server is set in: `MTP_HOST`.
 
-The `.secrets` file should be used as a runtime environment variables, and set the user and password required for SMTP authentication by the `MTP_RELAY`:
+The `.secrets` file should be used as a runtime environment variables, to set the user and password required for SMTP authentication by the `MTP_RELAY`:
 
     MTP_USER=user
     MTP_PASS=password
@@ -16,7 +16,7 @@ Basic way to get one instance up and running:
     docker run --rm  -t -i --env-file=.secret --name=postfix eeacms/postfix 
 
 From the application container, running on the same docker host, one can set the SMTP server to the postfix container address.
-d
+
 ## Example usage
 
 In the `example` folder, there is an example centos container than can be used to test connectivity.
