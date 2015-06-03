@@ -1,15 +1,22 @@
 # Postfix Image for SMTP Auth
 
-Build:
+This image is a CentOS 6 container running postfix preconfigured for SMTP relay authentication. It runs as an open relay mail server inside the Docker Containers internal network, so it can be used by any container to send emails through the remote relay.
 
-    docker build -t eeacms/postfix . 
+The relay is set in the environment variable: `MTP_RELAY`.
 
-Update the `.secrets` with your smtp authentication.
+The hostname of the postfix server is set in: `MTP_HOST`.
 
-Usage:
+The `.secrets` file should be used as a runtime environment variables, and set the user and password required for SMTP authentication by the `MTP_RELAY`:
+
+    MTP_USER=user
+    MTP_PASS=password
+
+Basic way to get one instance up and running:
 
     docker run --rm  -t -i --env-file=.secret --name=postfix eeacms/postfix 
 
+From the application container, running on the same docker host, one can set the SMTP server to the postfix container address.
+d
 ## Example usage
 
 In the `example` folder, there is an example centos container than can be used to test connectivity.
