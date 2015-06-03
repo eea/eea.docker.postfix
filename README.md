@@ -1,5 +1,7 @@
 # Postfix Image for SMTP Auth
 
+Available tags: [latest](https://github.com/eea/eea.docker.postfix/blob/master/Dockerfile), [eionet](https://github.com/eea/eea.docker.postfix/blob/master/eionet/Dockerfile).
+
 This image is a CentOS 6 container running postfix preconfigured for SMTP relay authentication. It runs as an open relay mail server inside the Docker Containers internal network, so it can be used by any container to send emails through the remote relay.
 
 The relay is set in the environment variable: `MTP_RELAY`.
