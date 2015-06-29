@@ -15,9 +15,11 @@ The `.secrets` file should be used as a runtime environment variables, to set th
 
 Basic way to get one instance up and running:
 
-    docker run --rm  -t -i --env-file=.secret --name=postfix eeacms/postfix 
+    docker run --rm  -t -i --env-file=.secret -v /etc/localtime:/etc/localtime:ro --name=postfix eeacms/postfix 
 
 From the application container, running on the same docker host, one can set the SMTP server to the postfix container address.
+
+Using the mount directive ```-v /etc/localtime:/etc/localtime:ro``` will make sure that the postfix container will share same timezone as the host, so that the emails have correct date and timestamps.
 
 ## Example usage
 
@@ -25,7 +27,7 @@ In the `example` folder, there is an example centos container than can be used t
     
     cd example
     docker build -t example .
-    docker run --rm -it --link=postfix:postfixcontainer example
+    docker run --rm -it -v /etc/localtime:/etc/localtime:ro --link=postfix:postfixcontainer example
     
     # from commandline:
     $ mail test@example.com
