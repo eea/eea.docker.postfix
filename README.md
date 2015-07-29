@@ -41,3 +41,19 @@ In the `example` folder, there is an example centos container than can be used t
     >>> s = smtplib.SMTP('postfixcontainer')
     >>> s.sendmail('test@example.eionet.europa.eu', ['user@example.com'], 'test')
     {}
+
+## Existing container configuration
+
+If you have an existing container that makes use of `/usr/bin/sendmail` to send emails, and you want to use this postfix image instead, you must modify your `Dockerfile` to :
+
+Install mailx/ssmtp:
+
+    # RUN apt-get install -y mailx ssmtp
+    or
+    # RUN yum install -y mailx ssmtp
+    
+Modify and copy / mount the `/etc/ssmtp.conf` file (see: https://github.com/eea/eea.docker.postfix/blob/master/example/ssmtp.conf). Change `mailhub` directive to the name of the postfixcontainer.
+
+    # ADD ssmtp.conf /etc/ssmtp.conf
+    
+You can check the example image for more details.
