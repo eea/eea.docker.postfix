@@ -4,9 +4,9 @@ Available tags: [latest](https://github.com/eea/eea.docker.postfix/blob/master/D
 
 This image is a CentOS 6 container running postfix preconfigured for SMTP relay authentication. It runs as an open relay mail server inside the Docker Containers internal network, so it can be used by any container to send emails through the remote relay.
 
-The relay is set in the environment variable: `MTP_RELAY`.
+The hostname of the postfix server is set in the environment variable `MTP_HOST` and is mandatory. Postfix will run as an open relay server only if the variables below are also set.
 
-The hostname of the postfix server is set in: `MTP_HOST`.
+The relay is set in `MTP_RELAY` and the port in `MTP_PORT`.
 
 The `.secrets` file should be used as a runtime environment variables, to set the user and password required for SMTP authentication by the `MTP_RELAY`:
 

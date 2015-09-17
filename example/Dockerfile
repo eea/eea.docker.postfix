@@ -1,4 +1,4 @@
-FROM layerworx/centos
+FROM centos:6
 
 RUN yum install -y mailx ssmtp
 
