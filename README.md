@@ -15,7 +15,7 @@ The `.secrets` file should be used as a runtime environment variables, to set th
 
 Basic way to get one instance up and running:
 
-    docker run --rm  -t -i --env-file=.secret -v /etc/localtime:/etc/localtime:ro --name=postfix eeacms/postfix 
+    docker run --rm  -t -i -e MTP_HOST=mydomain.com --env-file=.secret -v /etc/localtime:/etc/localtime:ro --name=postfix eeacms/postfix 
 
 From the application container, running on the same docker host, one can set the SMTP server to the postfix container address.
 
@@ -39,7 +39,7 @@ In the `example` folder, there is an example centos container than can be used t
     Type "help", "copyright", "credits" or "license" for more information.
     >>> import smtplib
     >>> s = smtplib.SMTP('postfixcontainer')
-    >>> s.sendmail('test@example.eionet.europa.eu', ['user@example.com'], 'test')
+    >>> s.sendmail('test@mydomain.com', ['user@example.com'], 'test')
     {}
 
 ## Existing container configuration
