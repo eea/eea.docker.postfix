@@ -2,6 +2,7 @@
 
 # Set up user
 function setup_conf_and_secret {
+    postconf -e 'smtp_tls_CAfile = /etc/ssl/certs/ca-bundle.trust.crt'
     postconf -e "relayhost = [$MTP_RELAY]:$MTP_PORT"
     postconf -e 'smtp_sasl_auth_enable = yes'
     postconf -e 'smtp_sasl_password_maps = hash:/etc/postfix/relay_passwd'
