@@ -2,7 +2,7 @@
 
 Available tags: [latest](https://github.com/eea/eea.docker.postfix/blob/master/Dockerfile), [eionet](https://github.com/eea/eea.docker.postfix/blob/master/eionet/Dockerfile).
 
-This image is a CentOS 6 container running postfix preconfigured for SMTP relay authentication. It runs as an open relay mail server inside the Docker Containers internal network, so it can be used by any container to send emails through the remote relay.
+This image is a CentOS 7 container running postfix preconfigured for SMTP relay authentication. It runs as an open relay mail server inside the Docker Containers internal network, so it can be used by any container to send emails through the remote relay.
 
 The hostname of the postfix server is set in the environment variable `MTP_HOST` and is mandatory. Postfix will run as an open relay server only if the variables below are also set.
 
@@ -23,37 +23,20 @@ Using the mount directive ```-v /etc/localtime:/etc/localtime:ro``` will make su
 
 ## Example usage
 
-In the `example` folder, there is an example centos container than can be used to test connectivity.
-    
-    cd example
-    docker build -t example .
-    docker run --rm -it -v /etc/localtime:/etc/localtime:ro --link=postfix:postfixcontainer example
-    
-    # from commandline:
-    $ mail test@example.com
-    
+From the postfix container ("postfix"):
+
     # from an application, python:
     $ python
-    Python 2.6.6 (r266:84292, Jan 22 2014, 09:42:36) 
-    [GCC 4.4.7 20120313 (Red Hat 4.4.7-4)] on linux2
-    Type "help", "copyright", "credits" or "license" for more information.
+    >>> import smtplib, os
+    >>> s = smtplib.SMTP(os.getenv('HOSTNAME'))
+    >>> s.sendmail('test@mydomain.com', ['user@example.com'], 'test')
+
+From another application container ("app"):
+
+    docker run --rm -it -v /etc/localtime:/etc/localtime:ro --name=app --link=postfix:postfixcontainer app_image
+
+    # from an application, python:
+    $ python
     >>> import smtplib
     >>> s = smtplib.SMTP('postfixcontainer')
     >>> s.sendmail('test@mydomain.com', ['user@example.com'], 'test')
-    {}
-
-## Existing container configuration
-
-If you have an existing container that makes use of `/usr/bin/sendmail` to send emails, and you want to use this postfix image instead, you must modify your `Dockerfile` to :
-
-Install mailx/ssmtp:
-
-    # RUN apt-get install -y mailx ssmtp
-    or
-    # RUN yum install -y mailx ssmtp
-    
-Modify and copy / mount the `/etc/ssmtp.conf` file (see: https://github.com/eea/eea.docker.postfix/blob/master/example/ssmtp.conf). Change `mailhub` directive to the name of the postfixcontainer.
-
-    # ADD ssmtp.conf /etc/ssmtp.conf
-    
-You can check the example image for more details.
