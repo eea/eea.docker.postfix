@@ -1,14 +1,32 @@
 # Postfix Image for SMTP Auth
 
-Available tags: [latest](https://github.com/eea/eea.docker.postfix/blob/master/Dockerfile), [eionet](https://github.com/eea/eea.docker.postfix/blob/master/eionet/Dockerfile).
+This image is a CentOS 7 container running postfix pre-configured for SMTP relay authentication.
+It runs as an open relay mail server inside the Docker Containers internal network,
+so it can be used by any container to send emails through the remote relay.
 
-This image is a CentOS 7 container running postfix preconfigured for SMTP relay authentication. It runs as an open relay mail server inside the Docker Containers internal network, so it can be used by any container to send emails through the remote relay.
-
-The hostname of the postfix server is set in the environment variable `MTP_HOST` and is mandatory. Postfix will run as an open relay server only if the variables below are also set.
+The hostname of the postfix server is set in the environment variable `MTP_HOST` and is mandatory.
+Postfix will run as an open relay server only if the variables below are also set.
 
 The relay is set in `MTP_RELAY` and the port in `MTP_PORT`.
 
-The `.secrets` file should be used as a runtime environment variables, to set the user and password required for SMTP authentication by the `MTP_RELAY`:
+## Supported tags and respective Dockerfile links
+
+  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/master/Dockerfile) (default)
+  - `:eionet` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/master/eionet/Dockerfile) (EEA specific)
+  - `:2.10` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/2.10/Dockerfile) (centos 7, chaperone)
+  - `:2.6` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/2.6/Dockerfile) (centos 6)
+
+## Base docker image
+
+ - [hub.docker.com](https://registry.hub.docker.com/u/eeacms/postfix)
+
+## Source code
+
+  - [github.com](http://github.com/eea/eea.docker.postfix)
+
+
+The `.secrets` file should be used as a runtime environment variables,
+to set the user and password required for SMTP authentication by the `MTP_RELAY`:
 
     MTP_USER=user
     MTP_PASS=password
@@ -40,3 +58,19 @@ From another application container ("app"):
     >>> import smtplib
     >>> s = smtplib.SMTP('postfixcontainer')
     >>> s.sendmail('test@mydomain.com', ['user@example.com'], 'test')
+
+## Copyright and license
+
+The Initial Owner of the Original Code is European Environment Agency (EEA).
+All Rights Reserved.
+
+The Original Code is free software;
+you can redistribute it and/or modify it under the terms of the GNU
+General Public License as published by the Free Software Foundation;
+either version 2 of the License, or (at your option) any later
+version.
+
+
+## Funding
+
+[European Environment Agency (EU)](http://eea.europa.eu)
