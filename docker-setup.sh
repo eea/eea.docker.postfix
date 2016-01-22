@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Set up user
+# configure postfix
+
 function setup_conf_and_secret {
     postconf -e 'smtp_tls_CAfile = /etc/ssl/certs/ca-bundle.trust.crt'
     postconf -e "relayhost = [$MTP_RELAY]:$MTP_PORT"
@@ -23,8 +24,4 @@ else
     postconf -e 'mynetworks = 127.0.0.1/32 192.168.0.0/16 172.16.0.0/12 10.0.0.0/8'
 fi
 
-service rsyslog start
-service postfix start
-
-touch /var/log/maillog
-tail -f /var/log/maillog
+newaliases

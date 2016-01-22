@@ -1,9 +1,19 @@
-FROM centos:6
+FROM centos:7
 
-RUN yum -y install postfix mailx cyrus-sasl cyrus-sasl-plain python-setuptools python-pip rsyslog
+RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 && \
+    yum updateinfo -y && \
+    yum install -y epel-release && \
+    rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7 && \
+    yum install -y python34-devel postfix cyrus-sasl cyrus-sasl-plain mailx && \
+    yum clean all
 
-VOLUME ["/var/log"]
+RUN curl https://bootstrap.pypa.io/get-pip.py | python3.4 && \
+    pip3 install chaperone
 
-ADD postfix.sh /postfix.sh
+RUN mkdir -p /etc/chaperone.d
+COPY chaperone.conf /etc/chaperone.d/chaperone.conf
 
-CMD ["sh", "-c", "/postfix.sh"]
+COPY docker-setup.sh /docker-setup.sh
+RUN chmod +x /docker-setup.sh
+
+ENTRYPOINT ["/usr/bin/chaperone"]
