@@ -1,7 +1,10 @@
 FROM centos:7
 
+MAINTAINER "European Environment Agency (EEA): IDM2 A-Team" <eea-edw-a-team-alerts@googlegroups.com>
+
 RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 && \
     yum updateinfo -y && \
+    yum update -y glibc && \
     yum install -y epel-release && \
     rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7 && \
     yum install -y python34-devel postfix cyrus-sasl cyrus-sasl-plain mailx && \
