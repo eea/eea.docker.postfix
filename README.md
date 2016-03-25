@@ -13,6 +13,7 @@ The relay is set in `MTP_RELAY` and the port in `MTP_PORT`.
 
   - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/master/Dockerfile) (default)
   - `:eionet` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/master/eionet/Dockerfile) (EEA specific)
+  - `:2.10.1` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/2.10.1/Dockerfile) (centos 7, chaperone, support more environment variables)
   - `:2.10` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/2.10/Dockerfile) (centos 7, chaperone)
   - `:2.6` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/2.6/Dockerfile) (centos 6)
 
@@ -58,6 +59,18 @@ From another application container ("app"):
     >>> import smtplib
     >>> s = smtplib.SMTP('postfixcontainer')
     >>> s.sendmail('test@mydomain.com', ['user@example.com'], 'test')
+
+## Supported environment variables
+
+* `MTP_HOST` The `myhostname` parameter specifies the internet hostname of this mail system
+* `MTP_DESTINATION` The `mydestination` parameter specifies the list of domains that this machine considers itself the final destination for.
+* `MTP_BANNER` The `smtpd_banner` parameter specifies the text that follows the 220 code in the SMTP server's greeting banner.
+* `MTP_RELAY` The `relayhost` parameter specifies the default host to send mail to when no entry is matched in the optional transport(5) table.
+* `MTP_RELAY_DOMAINS` The `relay_domains` parameter restricts what destinations this system will relay mail to.
+* `MTP_PORT` The `relayhost` port
+* `MTP_USER` The user used to connect to the `relayhost`
+* `MTP_PASS` The password used to connect to the `relayhost`
+* `MTP_INTERFACES` The `inet_interfaces` parameter specifies the network interface addresses that this mail system receives mail on.
 
 ## Copyright and license
 
