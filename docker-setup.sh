@@ -16,25 +16,25 @@ function setup_conf_and_secret {
 }
 
 if [ -z "$MTP_INTERFACES" ]; then
-  postconf -e 'inet_interfaces = all'
+  postconf -e "inet_interfaces = all"
 else
-  postconf -e 'inet_interfaces = $MTP_INTERFACES'
+  postconf -e "inet_interfaces = $MTP_INTERFACES"
 fi
 
 if [ ! -z "$MTP_HOST" ]; then
-  postconf -e 'myhostname = $MTP_HOST'
+  postconf -e "myhostname = $MTP_HOST"
 fi
 
 if [ ! -z "$MTP_DESTINATION" ]; then
-  postconf -e 'mydestination = $MTP_DESTINATION'
+  postconf -e "mydestination = $MTP_DESTINATION"
 fi
 
 if [ ! -z "$MTP_BANNER" ]; then
-  postconf -e 'smtpd_banner = $MTP_BANNER'
+  postconf -e "smtpd_banner = $MTP_BANNER"
 fi
 
 if [ ! -z "$MTP_RELAY_DOMAINS" ]; then
-  postconf -e 'relay_domains = $MTP_RELAY_DOMAINS'
+  postconf -e "relay_domains = $MTP_RELAY_DOMAINS"
 fi
 
 if [ ! -z "$MTP_RELAY" -a ! -z "$MTP_PORT" -a ! -z "$MTP_USER" -a ! -z "$MTP_PASS" ]; then
