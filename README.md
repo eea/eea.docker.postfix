@@ -6,6 +6,7 @@ Postfix SMTP only Docker image with SMTP relay support.
 
   - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/master/Dockerfile) (default)
   - `:eionet` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/master/eionet/Dockerfile) (EEA specific)
+  - `:2.11` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/2.11/Dockerfile) (centos 7, chaperone, smtp_tls_security_level to encrypt)
   - `:2.10.1` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/2.10.1/Dockerfile) (centos 7, chaperone, support more environment variables)
   - `:2.10` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/2.10/Dockerfile) (centos 7, chaperone)
   - `:2.6` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/2.6/Dockerfile) (centos 6)
