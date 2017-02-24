@@ -2,22 +2,32 @@
 
 Postfix SMTP only Docker image with SMTP relay support.
 
+ - CentOS: **7**
+ - Postfix: **2.10**
+ - Expose: **25**
+
+
 ## Supported tags and respective Dockerfile links
 
-  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/master/Dockerfile) (default)
+  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/master/Dockerfile) - CentOS: **7** Postfix: **2.10**
   - `:eionet` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/master/eionet/Dockerfile) (EEA specific)
-  - `:2.11` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/2.11/Dockerfile) (centos 7, chaperone, smtp_tls_security_level to encrypt)
-  - `:2.10.1` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/2.10.1/Dockerfile) (centos 7, chaperone, support more environment variables)
-  - `:2.10` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/2.10/Dockerfile) (centos 7, chaperone)
-  - `:2.6` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/2.6/Dockerfile) (centos 6)
+
+### Stable and immutable tags
+
+  - `:2.12.1` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/2.12.1/Dockerfile) - CentOS: **7** Postfix: **2.10**
+
+See [older versions](https://github.com/eea/eea.docker.postfix/releases)
+
 
 ## Base docker image
 
- - [hub.docker.com](https://registry.hub.docker.com/u/eeacms/postfix)
+ - [hub.docker.com](https://hub.docker.com/r/eeacms/postfix)
+
 
 ## Source code
 
   - [github.com](http://github.com/eea/eea.docker.postfix)
+
 
 ## Usage
 
@@ -49,6 +59,7 @@ Start sending emails:
       .
       quit
 
+
 ## Supported environment variables
 
 * `MTP_HOST` The `myhostname` parameter specifies the internet hostname of this mail system
@@ -61,6 +72,7 @@ Start sending emails:
 * `MTP_PASS` The password used to connect to the `relayhost`
 * `MTP_INTERFACES` The `inet_interfaces` parameter specifies the network interface addresses that this mail system receives mail on.
 
+
 ## Copyright and license
 
 The Initial Owner of the Original Code is European Environment Agency (EEA).
@@ -71,6 +83,7 @@ you can redistribute it and/or modify it under the terms of the GNU
 General Public License as published by the Free Software Foundation;
 either version 2 of the License, or (at your option) any later
 version.
+
 
 ## Funding
 
