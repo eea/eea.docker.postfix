@@ -19,4 +19,10 @@ COPY chaperone.conf /etc/chaperone.d/chaperone.conf
 COPY docker-setup.sh /docker-setup.sh
 RUN chmod +x /docker-setup.sh
 
+RUN curl --silent --location https://rpm.nodesource.com/setup_7.x | bash -
+RUN yum -y install nodejs
+COPY sendmail /sendmail
+WORKDIR "/sendmail"
+RUN npm install
+
 ENTRYPOINT ["/usr/bin/chaperone"]
