@@ -43,4 +43,10 @@ else
     postconf -e 'mynetworks = 127.0.0.1/32 192.168.0.0/16 172.16.0.0/12 10.0.0.0/8'
 fi
 
+if [ $(grep -c "^#header_checks" /etc/postfix/main.cf) -eq 1 ]; then
+	sed -i 's/#header_checks/header_checks/' /etc/postfix/main.cf
+        echo "/^Subject:/     WARN" >> /etc/postfix/header_checks
+        postmap /etc/postfix/header_checks
+fi
+
 newaliases
