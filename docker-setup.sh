@@ -9,7 +9,7 @@ function setup_conf_and_secret {
     postconf -e 'smtp_sasl_password_maps = hash:/etc/postfix/relay_passwd'
     postconf -e 'smtp_sasl_security_options = noanonymous'
     postconf -e 'smtp_tls_security_level = encrypt'
-    postconf -e 'mynetworks = 127.0.0.0/8 172.16.0.0/12 10.0.0.0/8'
+    postconf -e 'mynetworks = 127.0.0.0/8 172.16.0.0/12 172.17.0.0/16 10.0.0.0/8'
 
     echo "$MTP_RELAY   $MTP_USER:$MTP_PASS" > /etc/postfix/relay_passwd
     postmap /etc/postfix/relay_passwd
@@ -40,7 +40,7 @@ fi
 if [ ! -z "$MTP_RELAY" -a ! -z "$MTP_PORT" -a ! -z "$MTP_USER" -a ! -z "$MTP_PASS" ]; then
     setup_conf_and_secret
 else
-    postconf -e 'mynetworks = 127.0.0.1/32 192.168.0.0/16 172.16.0.0/12 10.0.0.0/8'
+    postconf -e 'mynetworks = 127.0.0.1/32 192.168.0.0/16 172.16.0.0/12 172.17.0.0/16 10.0.0.0/8'
 fi
 
 if [ $(grep -c "^#header_checks" /etc/postfix/main.cf) -eq 1 ]; then
