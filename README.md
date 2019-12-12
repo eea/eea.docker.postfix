@@ -13,7 +13,7 @@ Postfix SMTP only Docker image with SMTP relay support.
 
 ### Stable and immutable tags
 
-  - `:2.10-3.5` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/2.10-3.5/Dockerfile) - Postfix: **2.10** Release: *3.5*
+  - `:2.10-3.6` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/2.10-3.6/Dockerfile) - Postfix: **2.10** Release: *3.6*
 
 
 See [older versions](https://github.com/eea/eea.docker.postfix/releases)
