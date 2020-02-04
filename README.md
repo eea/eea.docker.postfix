@@ -13,7 +13,7 @@ Postfix SMTP only Docker image with SMTP relay support.
 
 ### Stable and immutable tags
 
-  - `:2.10-3.6` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/2.10-3.6/Dockerfile) - Postfix: **2.10** Release: *3.6*
+  - `:2.10-3.7` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/2.10-3.6/Dockerfile) - Postfix: **2.10** Release: *3.7*
 
 
 See [older versions](https://github.com/eea/eea.docker.postfix/releases)
@@ -48,7 +48,7 @@ or start postfix (to send emails by using a remote email server)
 
 Start sending emails:
 
-    $ docker run -it --rm --link=postfix alpine sh
+    $ docker run -it --rm --link=postfix busybox sh
       $ telnet postfix 25
       HELO foo.com
       MAIL FROM: bar@foo.com
@@ -71,7 +71,7 @@ Start sending emails:
 * `MTP_USER` The user used to connect to the `relayhost`
 * `MTP_PASS` The password used to connect to the `relayhost`
 * `MTP_INTERFACES` The `inet_interfaces` parameter specifies the network interface addresses that this mail system receives mail on.
-
+* `MTP_PROTOCOLS` The `inet_protocols` parameter specifies the network interface protocol. Can be set to `all`, `ipv4`,`ipv6` or `ipv4,ipv6`. The default value is `all`
 
 ## Copyright and license
 

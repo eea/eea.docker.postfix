@@ -21,19 +21,23 @@ else
   postconf -e "inet_interfaces = $MTP_INTERFACES"
 fi
 
-if [ ! -z "$MTP_HOST" ]; then
+if [ -n "$MTP_PROTOCOLS" ]; then
+  postconf -e "inet_protocols = $MTP_PROTOCOLS"
+fi
+
+if [ -n "$MTP_HOST" ]; then
   postconf -e "myhostname = $MTP_HOST"
 fi
 
-if [ ! -z "$MTP_DESTINATION" ]; then
+if [ -n "$MTP_DESTINATION" ]; then
   postconf -e "mydestination = $MTP_DESTINATION"
 fi
 
-if [ ! -z "$MTP_BANNER" ]; then
+if [ -n "$MTP_BANNER" ]; then
   postconf -e "smtpd_banner = $MTP_BANNER"
 fi
 
-if [ ! -z "$MTP_RELAY_DOMAINS" ]; then
+if [ -n "$MTP_RELAY_DOMAINS" ]; then
   postconf -e "relay_domains = $MTP_RELAY_DOMAINS"
 fi
 
