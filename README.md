@@ -67,11 +67,12 @@ Start sending emails:
 * `MTP_BANNER` The `smtpd_banner` parameter specifies the text that follows the 220 code in the SMTP server's greeting banner.
 * `MTP_RELAY` The `relayhost` parameter specifies the default host to send mail to when no entry is matched in the optional transport(5) table.
 * `MTP_RELAY_DOMAINS` The `relay_domains` parameter restricts what destinations this system will relay mail to.
-* `MTP_PORT` The `relayhost` port
-* `MTP_USER` The user used to connect to the `relayhost`
-* `MTP_PASS` The password used to connect to the `relayhost`
+* `MTP_PORT` The `relayhost` port.
+* `MTP_USER` The user used to connect to the `relayhost`.
+* `MTP_PASS` The password used to connect to the `relayhost`.
 * `MTP_INTERFACES` The `inet_interfaces` parameter specifies the network interface addresses that this mail system receives mail on.
-* `MTP_PROTOCOLS` The `inet_protocols` parameter specifies the network interface protocol. Can be set to `all`, `ipv4`,`ipv6` or `ipv4,ipv6`. The default value is `all`
+* `MTP_PROTOCOLS` The `inet_protocols` parameter specifies the network interface protocol. Can be set to `all`, `ipv4`,`ipv6` or `ipv4,ipv6`. The default value is `all`.
+* `MTP_MS_SIZE_LIMIT` If set, will configure email size limit.
 
 ## Copyright and license
 
