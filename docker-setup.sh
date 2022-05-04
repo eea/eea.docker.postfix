@@ -41,6 +41,10 @@ if [ -n "$MTP_RELAY_DOMAINS" ]; then
   postconf -e "relay_domains = $MTP_RELAY_DOMAINS"
 fi
 
+if [ -n "$MTP_MS_SIZE_LIMIT" ]; then
+   postconf -e "message_size_limit = $MTP_MS_SIZE_LIMIT"
+fi
+
 if [ ! -z "$MTP_RELAY" -a ! -z "$MTP_PORT" -a ! -z "$MTP_USER" -a ! -z "$MTP_PASS" ]; then
     setup_conf_and_secret
 else
