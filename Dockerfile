@@ -12,7 +12,7 @@ RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 && \
     yum install -y python3 postfix cyrus-sasl cyrus-sasl-plain mailx && \
     yum clean all
 
-RUN python3 -m pip install chaperone
+RUN python3 -m pip install chaperone PyYAML==5.2
 
 RUN mkdir -p /etc/chaperone.d
 COPY chaperone.conf /etc/chaperone.d/chaperone.conf
