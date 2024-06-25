@@ -2,8 +2,8 @@
 
 Postfix SMTP only Docker image with SMTP relay support.
 
- - CentOS: **7**
- - Postfix: **2.10.1**
+ - Rocky Linux: **9.3**
+ - Postfix: **3.5.9**
  - Expose: **25**
 
 
