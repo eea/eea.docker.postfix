@@ -9,7 +9,7 @@ Postfix SMTP only Docker image with SMTP relay support.
 
 ## Supported tags and respective Dockerfile links
    
-  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/master/Dockerfile) - CentOS: **9.3** Postfix: **3.5.9**
+  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/master/Dockerfile) - Rocky Linux: **9.3** Postfix: **3.5.9**
 
 ### Stable and immutable tags
 
