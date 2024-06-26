@@ -57,4 +57,6 @@ if [ $(grep -c "^#header_checks" /etc/postfix/main.cf) -eq 1 ]; then
 fi
 
 postconf -e "maillog_file=/dev/stdout"
+postconf -e "smtpd_tls_security_level = none"
+postconf -e "smtp_tls_security_level = none"
 newaliases
