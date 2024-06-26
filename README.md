@@ -72,6 +72,9 @@ Start sending emails:
 * `MTP_INTERFACES` The `inet_interfaces` parameter specifies the network interface addresses that this mail system receives mail on.
 * `MTP_PROTOCOLS` The `inet_protocols` parameter specifies the network interface protocol. Can be set to `all`, `ipv4`,`ipv6` or `ipv4,ipv6`. The default value is `all`.
 * `MTP_MS_SIZE_LIMIT` If set, will configure email size limit.
+* `SMTPD_TLS_SECURITY_LEVEL` The SMTP TLS security level for the Postfix SMTP server. Default value: none. Possible values: none(TLS will not be used), may( Opportunistic TLS), encrypt(Mandatory TLS encryption)
+* `SMTP_TLS_SECURITY_LEVEL` The default SMTP TLS security level for the Postfix SMTP client. Default value: none. Possible values: none(TLS will not be used), may( Opportunistic TLS), encrypt(Mandatory TLS encryption)
+
 
 ## Copyright and license
 
