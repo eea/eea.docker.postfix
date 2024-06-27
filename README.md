@@ -2,19 +2,18 @@
 
 Postfix SMTP only Docker image with SMTP relay support.
 
- - CentOS: **7**
- - Postfix: **2.10.1**
+ - Rocky Linux: **9.3**
+ - Postfix: **3.5.9**
  - Expose: **25**
 
 
 ## Supported tags and respective Dockerfile links
+   
+  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/master/Dockerfile) - Rocky Linux: **9.3** Postfix: **3.5.9**
 
-  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/master/Dockerfile) - CentOS: **7** Postfix: **2.10.1**
+  - `:3.5-1.0` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/master/Dockerfile) - Rocky Linux: **9.3** Postfix: **3.5.9**
 
-### Stable and immutable tags
-
-  - `:2.10-3.7` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/2.10-3.6/Dockerfile) - Postfix: **2.10** Release: *3.7*
-
+  - `:2.10-3.8` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/2.10-3.8/Dockerfile) - CentOS: **7** Postfix: **2.10.1**
 
 See [older versions](https://github.com/eea/eea.docker.postfix/releases)
 
@@ -73,6 +72,9 @@ Start sending emails:
 * `MTP_INTERFACES` The `inet_interfaces` parameter specifies the network interface addresses that this mail system receives mail on.
 * `MTP_PROTOCOLS` The `inet_protocols` parameter specifies the network interface protocol. Can be set to `all`, `ipv4`,`ipv6` or `ipv4,ipv6`. The default value is `all`.
 * `MTP_MS_SIZE_LIMIT` If set, will configure email size limit.
+* `SMTPD_TLS_SECURITY_LEVEL` The SMTP TLS security level for the Postfix SMTP server. Default value: none. Possible values: none(TLS will not be used), may( Opportunistic TLS), encrypt(Mandatory TLS encryption)
+* `SMTP_TLS_SECURITY_LEVEL` The default SMTP TLS security level for the Postfix SMTP client. Default value: may. Possible values: none(TLS will not be used), may( Opportunistic TLS), encrypt(Mandatory TLS encryption)
+
 
 ## Copyright and license
 
