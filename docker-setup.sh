@@ -59,13 +59,13 @@ fi
 if [ -n "$SMTPD_TLS_SECURITY_LEVEL" ]; then
   postconf -e "smtpd_tls_security_level = $SMTPD_TLS_SECURITY_LEVEL"
 else
-  postconf -e "smtpd_tls_security_level = may"
+  postconf -e "smtpd_tls_security_level = none"
 fi
 
 if [ -n "$SMTP_TLS_SECURITY_LEVEL" ]; then
   postconf -e "smtp_tls_security_level = $SMTP_TLS_SECURITY_LEVEL"
 else
-  postconf -e "smtp_tls_security_level = none"
+  postconf -e "smtp_tls_security_level = may"
 fi
 
 postconf -e "maillog_file=/dev/stdout"
