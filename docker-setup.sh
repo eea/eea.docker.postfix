@@ -59,7 +59,7 @@ fi
 if [ -n "$SMTPD_TLS_SECURITY_LEVEL" ]; then
   postconf -e "smtpd_tls_security_level = $SMTPD_TLS_SECURITY_LEVEL"
 else
-  postconf -e "smtpd_tls_security_level = none"
+  postconf -e "smtpd_tls_security_level = may"
 fi
 
 if [ -n "$SMTP_TLS_SECURITY_LEVEL" ]; then
