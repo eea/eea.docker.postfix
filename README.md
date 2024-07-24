@@ -6,8 +6,11 @@ Postfix SMTP only Docker image with SMTP relay support.
  - Postfix: **3.5.9**
  - Expose: **25**
 
-
 ## Supported tags and respective Dockerfile links
+
+> [!IMPORTANT]
+> Starting with the release **3.5-1.0**, the `MTP_USER` and `MTP_PASS` variables became mandatory, as without them, emails are rejected as **SPAM** and are not sent
+
    
   - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.postfix/blob/master/Dockerfile) - Rocky Linux: **9.3** Postfix: **3.5.9**
 
