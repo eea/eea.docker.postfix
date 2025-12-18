@@ -63,19 +63,19 @@ Start sending emails:
 
 ## Supported environment variables
 
-* `MTP_HOST` The `myhostname` parameter specifies the internet hostname of this mail system
-* `MTP_DESTINATION` The `mydestination` parameter specifies the list of domains that this machine considers itself the final destination for.
-* `MTP_BANNER` The `smtpd_banner` parameter specifies the text that follows the 220 code in the SMTP server's greeting banner.
-* `MTP_RELAY` The `relayhost` parameter specifies the default host to send mail to when no entry is matched in the optional transport(5) table.
-* `MTP_RELAY_DOMAINS` The `relay_domains` parameter restricts what destinations this system will relay mail to.
-* `MTP_PORT` The `relayhost` port.
-* `MTP_USER` The user used to connect to the `relayhost`.
-* `MTP_PASS` The password used to connect to the `relayhost`.
-* `MTP_INTERFACES` The `inet_interfaces` parameter specifies the network interface addresses that this mail system receives mail on.
-* `MTP_PROTOCOLS` The `inet_protocols` parameter specifies the network interface protocol. Can be set to `all`, `ipv4`,`ipv6` or `ipv4,ipv6`. The default value is `all`.
-* `MTP_MS_SIZE_LIMIT` If set, will configure email size limit.
-* `SMTPD_TLS_SECURITY_LEVEL` The SMTP TLS security level for the Postfix SMTP server. Default value: none. Possible values: none(TLS will not be used), may( Opportunistic TLS), encrypt(Mandatory TLS encryption)
-* `SMTP_TLS_SECURITY_LEVEL` The default SMTP TLS security level for the Postfix SMTP client. Default value: may. Possible values: none(TLS will not be used), may( Opportunistic TLS), encrypt(Mandatory TLS encryption)
+* `MTP_HOST` – Defines the `myhostname` value, representing the public internet hostname of this mail system.
+* `MTP_DESTINATION` – Sets `mydestination`, the list of domains for which this host is considered the final mail destination.
+* `MTP_BANNER` – Configures `smtpd_banner`, the text displayed after the 220 response in the SMTP greeting.
+* `MTP_RELAY` – Specifies `relayhost`, the default server used to forward outgoing mail when no transport rule matches.
+* `MTP_RELAY_DOMAINS` – Limits the set of destination domains for which this system is allowed to relay mail.
+* `MTP_PORT` – Defines the port used when connecting to the relay host.
+* `MTP_USER` – Username used to authenticate with the relay host.
+* `MTP_PASS` – Password used to authenticate with the relay host.
+* `MTP_INTERFACES` – Sets `inet_interfaces`, controlling the network interfaces on which Postfix listens for incoming mail.
+* `MTP_PROTOCOLS` – Sets `inet_protocols`, specifying the IP protocol(s) to use (`all`, `ipv4`, `ipv6`, or `ipv4,ipv6`; default: `all`).
+* `MTP_MS_SIZE_LIMIT` – When defined, configures the maximum allowed email size.
+* `SMTPD_TLS_SECURITY_LEVEL` – TLS security level for the Postfix SMTP **server** (default: `none`; values: `none`, `may` – opportunistic TLS, `encrypt` – mandatory TLS).
+* `SMTP_TLS_SECURITY_LEVEL` – TLS security level for the Postfix SMTP **client** (default: `may`; values: `none`, `may` – opportunistic TLS, `encrypt` – mandatory TLS).
 
 
 ## Copyright and license
