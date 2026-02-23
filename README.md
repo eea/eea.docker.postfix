@@ -66,11 +66,12 @@ Start sending emails:
 * `MTP_HOST` – Defines the `myhostname` value, representing the public internet hostname of this mail system.
 * `MTP_DESTINATION` – Sets `mydestination`, the list of domains for which this host is considered the final mail destination.
 * `MTP_BANNER` – Configures `smtpd_banner`, the text displayed after the 220 response in the SMTP greeting.
-* `MTP_RELAY` – Specifies `relayhost`, the default server used to forward outgoing mail when no transport rule matches.
+* `MTP_RELAY` – Specifies `relayhost`, the default server used to forward outgoing mail when no transport rule matches. (If used
 * `MTP_RELAY_DOMAINS` – Limits the set of destination domains for which this system is allowed to relay mail.
 * `MTP_PORT` – Defines the port used when connecting to the relay host.
 * `MTP_USER` – Username used to authenticate with the relay host.
 * `MTP_PASS` – Password used to authenticate with the relay host.
+*  MTP_RELAY, MTP_PORT, MTP_USER, and MTP_PASS are interdependent and must be defined together. If any of them is missing, the relay configuration will not function.
 * `MTP_INTERFACES` – Sets `inet_interfaces`, controlling the network interfaces on which Postfix listens for incoming mail.
 * `MTP_PROTOCOLS` – Sets `inet_protocols`, specifying the IP protocol(s) to use (`all`, `ipv4`, `ipv6`, or `ipv4,ipv6`; default: `all`).
 * `MTP_MS_SIZE_LIMIT` – When defined, configures the maximum allowed email size.
